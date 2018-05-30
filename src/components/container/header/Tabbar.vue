@@ -1,7 +1,9 @@
 <template>
     <div class="tabbar">
         <p class="left" @click="toggle"><i class="fa fa-bars"></i></p>
-        <p>{{title}}</p>
+        <p class="title">{{title}}</p>
+        <p class="right" @click="toUsers"><i class="fa fa-user"></i></p>
+        <p class="city">成都</p>
     </div>
 </template>
 <script>
@@ -20,14 +22,23 @@ export default {
         //        case 'Detail':this.title = "详情页面";break;
         //    }
         this.$router.beforeEach((to,from,next)=>{
+            // console.log(to);
             switch(to.name){
                case 'Index':this.title = "卖座电影";break;
+               case 'Films':this.title = "卖座电影";break;
+               case 'Login':this.title = "登录";break;
+               case 'Users':this.title = "我的";break;
                case 'Detail':this.title = "详情页面";break;
            };
            next();
         });
            this.title = title;
        });
+   },
+   methods:{
+       toUsers(){
+            this.$router.push({path:'/users'});
+       }
    }
 }
 </script>
@@ -54,7 +65,16 @@ export default {
         color: #999;
         
     }
-    p{
+    .right{
+        float: right; 
+        width: 40/$sc+rem;
+        // height: 50/$sc+rem;
+        line-height: 50/$sc+rem;
+        font-size: 16/$sc+rem;
+        color: #999;
+        
+    }
+    .title{
         float: left;
         height: 50/$sc+rem;
         line-height: 50/$sc+rem;
@@ -64,6 +84,16 @@ export default {
         padding-left: 14/$sc+rem;
         padding-right: 14/$sc+rem;
         }
+    .city{
+        float: right;
+        height: 50/$sc+rem;
+        line-height: 50/$sc+rem;
+        font-size: 14/$sc+rem;
+        color: #efefef;
+        text-overflow: ellipsis;
+        padding-left: 14/$sc+rem;
+        padding-right: 14/$sc+rem;
+    }
 }
 </style>
 

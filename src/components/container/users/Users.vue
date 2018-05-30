@@ -16,6 +16,9 @@ export default {
             }
         }
     },
+    created(){
+        this.$bus.emit("filename",'我的');
+    },
     methods:{
         quit(){
             sessionStorage.clear();
@@ -25,6 +28,19 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+@import "@/style/reset.scss";
+@import "@/style/common.scss";
+p{
+   line-height: 60/$sc+rem;
+}
+.btn-quit{
+    width: 200/$sc+rem;
+    height: 30/$sc+rem;
+    margin-top: 10/$sc+rem;
+    border-radius: 15/$sc+rem;
+    background: orange;
+    border: 1px solid orange;
+    color: white;
+}
 </style>

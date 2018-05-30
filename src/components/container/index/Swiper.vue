@@ -56,7 +56,7 @@ export default {
         }).then((res)=>{
             // console.log(res);
             this.films = res.data.data.films;
-            console.log(this.films);
+            // console.log(this.films);
         });
     }
 }

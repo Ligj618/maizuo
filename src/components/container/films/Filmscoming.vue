@@ -8,7 +8,7 @@
     <div  v-infinite-scroll="loadMore"
   infinite-scroll-disabled="loading"
   infinite-scroll-distance="10">
-        <div class="box" v-for="(item,index) in  films" :key="index" >
+        <div class="box" v-for="(item,index) in  films" :key="index" @click="detail(item.id)">
             <div class="images" >
                 <img :src="item.cover.origin" >
             </div>
@@ -41,6 +41,7 @@ export default {
     },
     created(){
         this.getData();
+        // this.$bus.emit("filename",'即将上映');
     },
     methods:{
         getData(){
@@ -79,6 +80,9 @@ export default {
         },
         loadMore(){
             this.getData();
+        },
+        detail(id){
+            this.$router.push({path:'/detail/'+id});
         }
     }
 }
