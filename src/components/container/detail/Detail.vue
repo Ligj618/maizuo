@@ -10,7 +10,7 @@
             <p>主演：<span v-for="(item,index) in film.actors" :key="index">{{item.name}}&nbsp;</span></p>
             <p>地区语言：{{film.language}}</p>
             <p>类型：{{film.category}}</p>
-            <p>上映时间{{film.premiereAt}}</p>
+            <p>上映时间：{{date}}</p>
             <p>{{film.synopsis}}</p>
             <button>立即购票</button>
         </div>
@@ -24,17 +24,29 @@ export default {
         return {
             film:{
                 cover:{}
-            }
+            },
+            date:''
+            
         }
     },
     created(){
-        this.$http.get("http://localhost:8080/mz/v4/api/film/"+this.id,{
+        this.$http.get("/mz/v4/api/film/"+this.id,{
             __t:Date.now(),
         }).then((res)=>{
             this.film = res.data.data.film;
             this.$bus.emit("filename",this.film.name);
             // console.log(this.film);
+            let date =new Date(this.film.premiereAt);
+            this.date = date.getMonth()+1+'月'+date.getDate()+'日';
+            // console.log(this.date);
         });
+        
+    },
+    methods:{
+        getTime(){
+            console.log(this.film.premiereAt);
+
+        }
     }
 }
 </script>
@@ -67,7 +79,7 @@ export default {
         border: none;
         position: fixed;
         left: 35%;
-        bottom: 30/$sc+rem;
+        bottom: 10/$sc+rem;
         border-radius:15/$sc+rem 
     }
 }

@@ -18,7 +18,7 @@ export default {
        filmItem,
    },
     created(){
-        this.$http.get("http://localhost:8080/mz/v4/api/film/"+this.info.url,{
+        this.$http.get("/mz/v4/api/film/"+this.info.url,{
             params:{
                 __t:Date.now(),
                 page:1,

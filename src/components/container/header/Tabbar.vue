@@ -16,11 +16,9 @@ export default {
    },
    mounted(){
        this.$bus.on("filename",(title)=>{
+           this.title = title;
+       });
            //根据当前路由显示标题
-        //    switch(this.$route.name){
-        //        case 'Index':this.title = "卖座电影";break;
-        //        case 'Detail':this.title = "详情页面";break;
-        //    }
         this.$router.beforeEach((to,from,next)=>{
             // console.log(to);
             switch(to.name){
@@ -32,8 +30,7 @@ export default {
            };
            next();
         });
-           this.title = title;
-       });
+           
    },
    methods:{
        toUsers(){

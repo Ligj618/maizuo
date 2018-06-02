@@ -59,7 +59,7 @@ export default {
                 duration:-1
                 });
             this.loading=true;
-            this.$http.get("http://localhost:8080/mz/v4/api/film/"+this.type,{
+            this.$http.get("/mz/v4/api/film/"+this.type,{
                 params:{
                     page:this.page,
                     count:7}

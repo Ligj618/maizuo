@@ -16,7 +16,7 @@
             <div class="image"><img :src="film.cover.origin" ></div>
             <div class="coming">
                 <p>{{film.name}}</p>
-                <span>{{film.premiereAt}}上映</span>
+                <span>{{new Date(this.film.premiereAt).getMonth()+1+'月'+new Date(this.film.premiereAt).getDate()+'日'}}上映</span>
             </div>
        </div>
     </div>

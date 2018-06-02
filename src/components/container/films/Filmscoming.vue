@@ -15,7 +15,7 @@
             <div class="desc">
                 <h3>{{item.name}}</h3>
                 <p>{{item.intro}}</p>
-                <p><span>{{item.premiereAt}}</span>上映</p>
+                <p><span>{{new Date(item.premiereAt).getMonth()+1+'月'+new Date(item.premiereAt).getDate()+'日'}}</span>上映</p>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ export default {
                 duration:-1
                 });
             this.loading=true;
-            this.$http.get("http://localhost:8080/mz/v4/api/film/"+this.type,{
+            this.$http.get("/mz/v4/api/film/"+this.type,{
                 params:{
                     page:this.page,
                     count:7}

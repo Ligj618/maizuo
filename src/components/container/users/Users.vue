@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{users}}</p>
+        <p class="user-p">{{users}}</p>
         <button class="btn-quit" @click="quit">注销</button>
     </div>
 </template>
@@ -16,9 +16,9 @@ export default {
             }
         }
     },
-    created(){
-        this.$bus.emit("filename",'我的');
-    },
+    // created(){
+    //     this.$bus.emit("filename",'我的');
+    // },
     methods:{
         quit(){
             sessionStorage.clear();
@@ -31,7 +31,7 @@ export default {
 <style lang="scss">
 @import "@/style/reset.scss";
 @import "@/style/common.scss";
-p{
+user-p{
    line-height: 60/$sc+rem;
 }
 .btn-quit{

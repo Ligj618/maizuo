@@ -14,9 +14,9 @@ export default {
             password:''
         }
     },
-    created(){
-        this.$bus.emit("filename",'登录');
-    },
+    // created(){
+    //     this.$bus.emit("filename",'登录');
+    // },
     methods:{
         login(){
             if(this.username=='lgj' && this.password=='123'){
